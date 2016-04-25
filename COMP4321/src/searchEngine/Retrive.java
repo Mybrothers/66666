@@ -1,6 +1,7 @@
 package searchEngine;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -16,7 +17,7 @@ import jdbm.helper.FastIterator;
 import jdbm.htree.HTree;
 
 
-public class Retrive {
+public class Retrive implements Serializable{
 	/*
 	 * This function takes a query, which is an ArrayList of Strings, and returns
 	 * an ArrayList of Documents in a descending order according to their cosine value 
