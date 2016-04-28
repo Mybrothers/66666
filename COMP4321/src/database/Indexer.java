@@ -37,6 +37,25 @@ public class Indexer {
 		in.close();
 	}
 	
+	public ArrayList removeStopwordsForQuery(ArrayList<String> list){
+		try{
+			readInStopwords("stopwords.txt");
+		}catch (IOException e) {
+			e.printStackTrace();
+			System.out.println("file not exist!!!");
+		}
+		for(String str:list){
+			str = str.replaceAll("[^a-zA-Z\\d\\s]","");
+		}
+		ArrayList<String> afterStop = new ArrayList<String>();
+		for (String str:list) {
+			if (!str.isEmpty() && !stopWords.contains(str)) {
+				afterStop.add(str);
+			}
+		}
+		return afterStop;
+	}
+	
 	public ArrayList removeStopwords(String text){
 		try{
 			readInStopwords("stopwords.txt");
@@ -45,10 +64,8 @@ public class Indexer {
 			System.out.println("file not exist!!!");
 		}
 		
-		
-		
 		ArrayList<String> afterStop = new ArrayList<String>();
-		text = text.replaceAll("[^A-Za-z0-9 ]"," ");
+		text = text.replaceAll("[^A-Za-z0-9]"," ");
 		if (text != null) {
 			for (String str:text.split("\\s+")) {
 					afterStop.add(str);
