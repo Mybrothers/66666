@@ -1,0 +1,90 @@
+@CHARSET "UTF-8";
+
+#custom-search-input{
+	position:fixed;
+    padding: 3px;
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff; 
+    top: 50%;
+    left: 50%;
+    height:4em;
+    width: 30em;
+    margin-top: -2em; /*set to a negative number 1/2 of your height*/
+    margin-left: -15em; /*set to a negative number 1/2 of your width*/}
+}
+
+#custom-search-input input{
+    border: 0;
+    box-shadow: none;
+}
+
+#custom-search-input button{
+    margin: 2px 0 0 0;
+    background: none;
+    box-shadow: none;
+    border: 0;
+    color: #666666;
+    padding: 0 8px 0 10px;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input button:hover{
+    border: 0;
+    box-shadow: none;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input .glyphicon-search{
+    font-size: 23px;
+}
+
+html { 
+  background: url(../header.jpg) no-repeat center center fixed; 
+  color: #fff;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+div.background {
+  background: url(../header.jpg) no-repeat center center fixed; 
+  color: #fff;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+div.transbox {
+    margin: 30px;
+    background-color: #000000;
+    border: 1px solid black;
+    opacity: 0.4;
+    filter: alpha(opacity=60); /* For IE8 and earlier */
+}
+
+div.transbox h1 {
+    margin: 5%;
+    font-weight: bold;
+    color: #000000;
+}
+
+html h1{
+	
+}
+
+/*
+body{
+	position: relative;
+    color: #fff;
+	background-position: center;
+	background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+*/
+

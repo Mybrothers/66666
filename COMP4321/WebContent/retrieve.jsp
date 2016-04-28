@@ -29,16 +29,20 @@ else{
 	for(int i = 0; i < docs.size(); i++){
 		Documents doc = docs.get(i);%>
 		
-		<p><%= doc.getScore() %></p>
-		<a href=<%=doc.getURL() %>> <%=doc.getTitle() %>></a>
+		<p><%="Ranking Score: " + doc.getScore() %></p>
+		<a href=<%=doc.getURL() %>> <%=doc.getTitle() %></a>
+		<p> </p>
 		<a href=<%=doc.getURL() %>>Click Me !</a>
-		<p><%= doc.getDate() + " " + doc.getSize() %></p>
+		<p><%= "Last Modified at " + doc.getDate() + " File size: " + doc.getSize() %></p>
 <% 		ArrayList<String> ChildURLs = doc.getChildURLs();
 		for(int j = 0; j < ChildURLs.size(); j++){
 			String url = ChildURLs.get(j);%>
-			<p><%= url %></p>
+			<p><%="Child Link: " + url %></p>
 		<%}%>
+		<hr>
 	<% }%>	
 <%}%>
+
+	
 </body>
 </html>
