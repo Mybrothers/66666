@@ -44,11 +44,14 @@ public class Indexer {
 			e.printStackTrace();
 			System.out.println("file not exist!!!");
 		}
+		
+		
+		
 		ArrayList<String> afterStop = new ArrayList<String>();
-
+		text = text.replaceAll("[^A-Za-z0-9 ]"," ");
 		if (text != null) {
 			for (String str:text.split("\\s+")) {
-				afterStop.add(str);
+					afterStop.add(str);
 			}
 		}
 		ArrayList<String> Stopaf = new ArrayList<String>();
@@ -66,6 +69,8 @@ public class Indexer {
 			str=this.porter.stripAffixes(str);
 		}
 	}
+	
+	
 	
 	public void IndexingPage(Page page, ArrayList<String> words, int type) throws IOException{
 		// check the URL existence and the modification date
