@@ -9,10 +9,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Vector;
 
+import java.util.Set;
 import org.htmlparser.beans.LinkBean;
 import org.htmlparser.beans.StringBean;
 import org.htmlparser.filters.TagNameFilter;
@@ -59,6 +61,7 @@ public class StringExtractor
     	int count = 0;
         queue.add(new Page(url));
         while (limit > 0 && !queue.isEmpty()) {
+        Set<String> myset = new HashSet<String>();
         	Page CurrentPage = queue.remove();
         	StringBean sb;
             sb = new StringBean ();
@@ -100,12 +103,14 @@ public class StringExtractor
 			    	if (nodelist.size() > 0) {
 			    		CurrentPage.title = nodelist.elementAt(0).toPlainTextString();
 			    	}
-			    } catch (ParserException e) {
-			        e.printStackTrace();
+			    } catch (Exception e) {
+			        //e.printStackTrace();
+			    	continue;
 			    } 
-			} catch (UnsupportedEncodingException e) {
+			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				continue;
 			}
             LinkBean lb = new LinkBean();
             lb.setURL(CurrentPage.url);
@@ -124,7 +129,12 @@ public class StringExtractor
             if (!exist) {
             	limit--;
             	count++;
-            	list.add(CurrentPage);
+            	list.add(Cur//            for (int i = 0; i < list.size(); i++) {
+//            	if (list.get(i).url.equals(CurrentPage.url)) {
+//            		exist = true;
+//            	}
+//            }
+rentPage);
             	if (CurrentPage.parent != null) {
             		CurrentPage.parent.children.add(CurrentPage);
             	}
@@ -140,7 +150,8 @@ public class StringExtractor
     public void print() {
     	for (int i = 0; i < list.size(); i++) {
     			System.out.println(list.get(i).children.size());
-//    			System.out.println(list.get(i).url);
+//             	System.out.println("page "+count);
+   			System.out.println(list.get(i).url);
 //    			System.out.print(list.get(i).date);
 //    			System.out.println(list.get(i).size);
     	}
