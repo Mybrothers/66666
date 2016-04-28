@@ -50,6 +50,7 @@ public class Indexer {
 		ArrayList<String> afterStop = new ArrayList<String>();
 		for (String str:list) {
 			if (!str.isEmpty() && !stopWords.contains(str)) {
+                str = str.toLowerCase();
 				afterStop.add(str);
 			}
 		}
@@ -74,6 +75,7 @@ public class Indexer {
 		ArrayList<String> Stopaf = new ArrayList<String>();
 		for (String str:afterStop) {
 			if (!str.isEmpty() && !stopWords.contains(str)) {
+                str = str.toLowerCase();
 				Stopaf.add(str);
 			}
 		}
