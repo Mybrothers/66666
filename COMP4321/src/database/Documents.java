@@ -2,11 +2,15 @@ package database;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Map;
 
 
 public class Documents implements Serializable{
+	
 		double score;
 		int docID;
 		int tfMax;
@@ -17,6 +21,7 @@ public class Documents implements Serializable{
 		ArrayList<String> allTerms;
 		ArrayList<String> childURLs;
 		HashMap<String, ArrayList<Integer>> map;
+		ArrayList<Pair> keywords;
 		
 		public Documents(int id, int tfmax, String url, Date Date, String Title, ArrayList<String> terms, ArrayList<String> childURLs, int Size, HashMap<String, ArrayList<Integer>> map) {
 			docID = id;
@@ -29,6 +34,29 @@ public class Documents implements Serializable{
 			this.childURLs = childURLs;
 			this.map = map;
 			this.score = -1;
+			
+			ArrayList<Pair> tmp = new ArrayList<Pair>();
+			for (String str: allTerms) {
+				Pair pair = new Pair(str,map.get(str).size());
+				tmp.add(pair);
+			}
+			Collections.sort(tmp, new Comparator<Pair>() {
+		        @Override
+		        public int compare(Pair pair1, Pair pair2)
+		        {
+		        	double difference = pair1.getR() - pair2.getR();
+		        	if (difference > 0) {
+		        		return -1;
+		        	} else if (difference == 0) {
+		        		return 0;
+		        	} else {
+		        		return 1;
+		        	}
+		        }
+		    });
+			if (tmp.size() > 5) {
+				this.keywords = (ArrayList<Pair>)tmp.subList(0, 5);
+			}
 		}
 
 		public Date getDate() {
@@ -114,4 +142,9 @@ public class Documents implements Serializable{
 		public double getScore() {
 			return this.score;
 		}
+		
+		public ArrayList<Pair> getKeywords() {
+			return this.keywords;
+		}
+
 	}
