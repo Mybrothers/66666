@@ -1,7 +1,4 @@
-package searchEngine;
-
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -9,15 +6,11 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
-import database.Documents;
-import database.ForwardFile;
-import database.InvertedFile;
-import database.Posting;
 import jdbm.helper.FastIterator;
 import jdbm.htree.HTree;
 
 
-public class Retrive implements Serializable{
+public class Retrive {
 	/*
 	 * This function takes a query, which is an ArrayList of Strings, and returns
 	 * an ArrayList of Documents in a descending order according to their cosine value 
@@ -38,6 +31,7 @@ public class Retrive implements Serializable{
 			int titleMatch = 0;
 			ArrayList<Double> vector = new ArrayList<Double>();
 			for (String str: query) {
+				str = str.toLowerCase();
 				HashMap<String, ArrayList<Integer>> map = doc.getMap();
 				// phase search
 				if (str.contains(" ")) {
@@ -51,16 +45,9 @@ public class Retrive implements Serializable{
 						// how to get df of a phrase
 						double idf = Math.log(10)/Math.log(2);
 						vector.add(tf*idf/doc.getTfMax());
-//						System.out.println(tf);
-//						LinkedList<Posting> titlePosting = (LinkedList<Posting>) PageTitleIndices.get(str);
-//						if (titlePosting != null) {
-//							for (Posting post:titlePosting) {
-//								if (post.getDocID() == doc.getDocID()) {
-//									titleMatch++;
-//									break;
-//								}
-//							}
-//						}
+						if (doc.getTitle().contains(str)) {
+							titleMatch++;
+						}
 					}
 					continue;
 				}
@@ -118,6 +105,7 @@ public class Retrive implements Serializable{
 	}
 	
 	public ArrayList<String> process(String str) {
+		Indexer index = new Indexer();
 		str = str.trim();
 		if (str.isEmpty()) {
 			return null;
@@ -145,6 +133,7 @@ public class Retrive implements Serializable{
 			if (!substr.isEmpty()) {
 				result.add(substr);
 			}
+			index.stemming(result);
 			return result;
 		}
 	}
