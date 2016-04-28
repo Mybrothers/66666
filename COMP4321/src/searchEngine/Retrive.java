@@ -1,3 +1,5 @@
+package searchEngine;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -6,6 +8,11 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
+import database.Documents;
+import database.ForwardFile;
+import database.Indexer;
+import database.InvertedFile;
+import database.Posting;
 import jdbm.helper.FastIterator;
 import jdbm.htree.HTree;
 
