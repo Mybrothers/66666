@@ -129,15 +129,16 @@ public class StringExtractor
             if (!exist) {
             	limit--;
             	count++;
-            	list.add(Cur//            for (int i = 0; i < list.size(); i++) {
+            	list.add(CurrentPage);
+//            for (int i = 0; i < list.size(); i++) {
 //            	if (list.get(i).url.equals(CurrentPage.url)) {
 //            		exist = true;
 //            	}
 //            }
-rentPage);
             	if (CurrentPage.parent != null) {
             		CurrentPage.parent.children.add(CurrentPage);
             	}
+            	System.out.println("Page "+count);
             }
         }
         if (list.isEmpty()) {

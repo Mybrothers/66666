@@ -131,7 +131,9 @@ public class Indexer {
 		for(Page p : page.children){
 			childURLs.add(p.url);
 		}
-		ff.insertDoc(page.index, tfmax, page.url, terms, type, page.date, page.title, childURLs, page.size, map);
+		ArrayList<String> parentURLs = new ArrayList<>();
+		parentURLs.add(page.parent.url);
+		ff.insertDoc(page.index, tfmax, page.url, terms, type, page.date, page.title, childURLs, parentURLs,page.size, map);
 	}
 	
 	public void indexingPageRoot(Page root) throws IOException{

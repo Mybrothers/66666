@@ -3,6 +3,7 @@
 <%@ page import="searchEngine.Retrive" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="database.Documents" %>
+<%@ page import="database.Pair" %>
 <%@ page import="jdbm.RecordManagerFactory" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -16,12 +17,14 @@
 </head>
 <body>
 <%
-if(request.getParameter("userquery")==null)
-{
-	out.println("You input nothing");
-	request.getRequestDispatcher("ErrorPage.html").forward(request, response);
+if(request.getParameter("userquery")==null || request.getParameter("userquery")=="")
+{%>
+	<div style="text-align:center;font-size:300%;" >
+		<p style="text-align:center;">Please Input Keywords </p>
+		<a href="index.html" > Return </a>
+	</div>
 	
-}
+<%}
 else{
 	Retrive re = new Retrive();
 	String query = request.getParameter("userquery");
@@ -44,12 +47,25 @@ else{
 		<p> </p>
 		<a href=<%=doc.getURL() %>>Click Me !</a>
 		<p><%= "Last Modified at " + doc.getDate() + " File size: " + doc.getSize() %></p>
-<% 		ArrayList<String> ChildURLs = doc.getChildURLs();
+<% 		ArrayList<Pair> keywords = doc.getKeywords();
+		for(int j = 0; j< 5; j++){
+			Pair p = keywords.get(j);
+			String word = p.getL();
+			int freq = p.getR();%>
+			<p><%= word + " " + freq + " "%></p>
+		<%}
+		ArrayList<String> ParentURLs = doc.getParentURLs();
+		for(int j = 0; j < ParentURLs.size(); j++){
+			String url = ParentURLs.get(j);%>
+			<p><%="Parent Link: " + url %></p>
+		<%}
+		ArrayList<String> ChildURLs = doc.getChildURLs();
 		for(int j = 0; j < ChildURLs.size(); j++){
 			String url = ChildURLs.get(j);%>
 			<p><%="Child Link: " + url %></p>
 		<%}%>
 		</div>
+		<hr>
 	<% }%>	
 <%}%>
 

@@ -61,8 +61,8 @@ public class ForwardFile implements Serializable{
 		return this.NumberOfDocuments;
 	}
 	
-	public void insertDoc(int id, int tfmax,String url, ArrayList<String> terms, int type, Date Date, String Title, ArrayList<String> childURLs, int Size, HashMap<String, ArrayList<Integer>> map) throws IOException{
-		Documents doc = new Documents(id, tfmax, url,Date, Title, terms, childURLs, Size, map);
+	public void insertDoc(int id, int tfmax,String url, ArrayList<String> terms, int type, Date Date, String Title, ArrayList<String> childURLs, ArrayList<String> parentURLs,int Size, HashMap<String, ArrayList<Integer>> map) throws IOException{
+		Documents doc = new Documents(id, tfmax, url,Date, Title, terms, childURLs, parentURLs,Size, map);
 		switch(type){
 		case TO_PAGE_BODY:
 			Documents test = (Documents) docPageIndices.get(id);

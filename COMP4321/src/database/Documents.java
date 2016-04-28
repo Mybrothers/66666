@@ -20,10 +20,11 @@ public class Documents implements Serializable{
 		String title;
 		ArrayList<String> allTerms;
 		ArrayList<String> childURLs;
+		ArrayList<String> parentURLs;
 		HashMap<String, ArrayList<Integer>> map;
 		ArrayList<Pair> keywords;
 		
-		public Documents(int id, int tfmax, String url, Date Date, String Title, ArrayList<String> terms, ArrayList<String> childURLs, int Size, HashMap<String, ArrayList<Integer>> map) {
+		public Documents(int id, int tfmax, String url, Date Date, String Title, ArrayList<String> terms, ArrayList<String> childURLs,ArrayList<String> parentURLs, int Size, HashMap<String, ArrayList<Integer>> map) {
 			docID = id;
 			tfMax = tfmax;
 			URL = url;
@@ -32,6 +33,7 @@ public class Documents implements Serializable{
 			size = Size;
 			allTerms = terms;
 			this.childURLs = childURLs;
+			this.parentURLs = parentURLs;
 			this.map = map;
 			this.score = -1;
 			
@@ -55,7 +57,7 @@ public class Documents implements Serializable{
 		        }
 		    });
 			if (tmp.size() > 5) {
-				this.keywords = (ArrayList<Pair>)tmp.subList(0, 5);
+				this.keywords = new ArrayList<Pair>(tmp.subList(0, 5));
 			}
 		}
 
@@ -129,6 +131,14 @@ public class Documents implements Serializable{
 
 		public void setChildURLs(ArrayList<String> childURLs) {
 			this.childURLs = childURLs;
+		}
+		
+		public ArrayList<String> getParentURLs() {
+			return childURLs;
+		}
+
+		public void setParentURLs(ArrayList<String> parentURLs) {
+			this.parentURLs = parentURLs;
 		}
 		
 		public HashMap<String, ArrayList<Integer>> getMap() {
