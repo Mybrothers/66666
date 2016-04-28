@@ -134,7 +134,7 @@ public class Documents implements Serializable{
 		}
 		
 		public ArrayList<String> getParentURLs() {
-			return childURLs;
+			return parentURLs;
 		}
 
 		public void setParentURLs(ArrayList<String> parentURLs) {
