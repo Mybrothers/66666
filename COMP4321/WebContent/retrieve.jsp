@@ -8,6 +8,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/result.css" media="screen" />
 <title>Retrieve Documents</title>
 </head>
 <body>
@@ -26,9 +30,15 @@ else{
    		processedQuery.add(str);
    	}
 	ArrayList<Documents> docs = re.retrive(processedQuery);
+	if(docs.isEmpty()){%>
+		<div style="text-align:center;font-size:300%;" >
+			<p style="text-align:center;">Sorry, we don't find any results </p>
+			<a href="index.html" > Return </a>
+		</div>
+	<% }
 	for(int i = 0; i < docs.size(); i++){
 		Documents doc = docs.get(i);%>
-		
+		<div class="container-fluid">
 		<p><%="Ranking Score: " + doc.getScore() %></p>
 		<a href=<%=doc.getURL() %>> <%=doc.getTitle() %></a>
 		<p> </p>
@@ -39,7 +49,7 @@ else{
 			String url = ChildURLs.get(j);%>
 			<p><%="Child Link: " + url %></p>
 		<%}%>
-		<hr>
+		</div>
 	<% }%>	
 <%}%>
 
