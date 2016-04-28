@@ -1,6 +1,8 @@
 package database;
 
-public class Pair {
+import java.io.Serializable;
+
+public class Pair implements Serializable{
     private String l;
     private int r;
 	public Pair(String l, int r){

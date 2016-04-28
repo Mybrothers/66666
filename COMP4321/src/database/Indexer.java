@@ -132,7 +132,11 @@ public class Indexer {
 			childURLs.add(p.url);
 		}
 		ArrayList<String> parentURLs = new ArrayList<>();
-		parentURLs.add(page.parent.url);
+		if(page.parent == null){
+			parentURLs.add("No Parent");
+		}else{
+		parentURLs.add(page.parent.url);}
+		
 		ff.insertDoc(page.index, tfmax, page.url, terms, type, page.date, page.title, childURLs, parentURLs,page.size, map);
 	}
 	
