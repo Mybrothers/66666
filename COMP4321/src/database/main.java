@@ -64,7 +64,7 @@ public class main {
 							indexer.indexingPageRoot(root);
 							constructURLtoID(root);
 							ForwardFile ff = ForwardFile.getInstance();
-							ff.printFile();
+//							ff.printFile();
 						
 					}					
 				} catch (Exception e) {
@@ -72,8 +72,6 @@ public class main {
 					e.printStackTrace();
 				}
                 try {
-//                	PageRank.ranking();
-//                	PageRank.prinScore();
 					ForwardFile ff = ForwardFile.getInstance();
 					InvertedFile ivf = InvertedFile.getInstance();
 ////					ivf.print();
@@ -81,6 +79,8 @@ public class main {
 					ff.finalize();
 					ivf.finalize();
 					imap.finalize();
+					PageRank.ranking();
+                	PageRank.prinScore();
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
