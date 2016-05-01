@@ -72,16 +72,15 @@ public class main {
 					e.printStackTrace();
 				}
                 try {
-                	
+//                	PageRank.ranking();
+//                	PageRank.prinScore();
 					ForwardFile ff = ForwardFile.getInstance();
 					InvertedFile ivf = InvertedFile.getInstance();
-//					ivf.print();
+////					ivf.print();
 					UrlToIdMap imap = UrlToIdMap.getInstance();
 					ff.finalize();
 					ivf.finalize();
 					imap.finalize();
-                	PageRank.ranking();
-                	PageRank.prinScore();
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

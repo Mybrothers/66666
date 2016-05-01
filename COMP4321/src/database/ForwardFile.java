@@ -135,17 +135,20 @@ public class ForwardFile implements Serializable{
 		FastIterator it = docs.values();
 		Documents doc = null;
 		while((doc = (Documents) it.next()) != null){
-			System.out.println(doc.getTitle());
-			System.out.println(doc.getURL());
-			System.out.println(doc.getDate() + " " + doc.getSize());
-			for (String term : doc.getMap().keySet()) {
-				System.out.print(term + " " + doc.getMap().get(term).size() + "; ");
-			}
-			System.out.println();
-			if	(doc.getChildURLs() != null) {
-				for (String childurl : doc.getChildURLs()) {
-					System.out.println(childurl);
-				}	
+//			System.out.println(doc.getTitle());
+//			System.out.println(doc.getURL());
+//			System.out.println(doc.getDate() + " " + doc.getSize());
+//			for (String term : doc.getMap().keySet()) {
+//				System.out.print(term + " " + doc.getMap().get(term).size() + "; ");
+//			}
+//			System.out.println();
+//			if	(doc.getChildURLs() != null) {
+//				for (String childurl : doc.getChildURLs()) {
+//					System.out.println(childurl);
+//				}	
+//			}
+			for (Pair term: doc.getKeywords()) {
+				System.out.println(term.getL());
 			}
 		}
 	}

@@ -88,6 +88,7 @@ public class Retrive {
 			if (innerProduct != 0 || titleMatch != 0) {
 				double cosine = innerProduct/(Math.sqrt(module2)*Math.sqrt(query.size()));
 				cosine += 0.3*titleMatch;
+				cosine += doc.getPageRank();
 				doc.setScore(cosine);
 				result.add(doc);
 			}
