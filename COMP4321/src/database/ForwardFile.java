@@ -115,7 +115,8 @@ public class ForwardFile implements Serializable{
 		long recid = recman.getNamedObject("NumberOfDocuments");
 		recman.update(recid, NumberOfDocuments);
 		recman.commit();
-		recman.close();				
+		recman.close();		
+		instance = null;
 	}
 
 	public boolean isModified(int docId, Date date) throws IOException {

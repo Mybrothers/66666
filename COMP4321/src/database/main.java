@@ -50,7 +50,7 @@ public class main {
             Page root = null;
            
                 try {
-               	root = se.extractStrings(300);
+//                	root = se.extractStrings(300);
 //					se.print();
 					UrlToIdMap IDmap = null;
 			        try {
@@ -61,9 +61,9 @@ public class main {
 					}
 					if(IDmap != null){
 												
-							indexer.indexingPageRoot(root);
-							constructURLtoID(root);
-							ForwardFile ff = ForwardFile.getInstance();
+//							indexer.indexingPageRoot(root);
+//							constructURLtoID(root);
+//							ForwardFile ff = ForwardFile.getInstance();
 //							ff.printFile();
 						
 					}					
@@ -72,14 +72,16 @@ public class main {
 					e.printStackTrace();
 				}
                 try {
-					ForwardFile ff = ForwardFile.getInstance();
-					InvertedFile ivf = InvertedFile.getInstance();
-//					ivf.print();
-					UrlToIdMap imap = UrlToIdMap.getInstance();
-					ff.finalize();
-					ivf.finalize();
-					imap.finalize();
-				} catch (IOException e) {
+                	PageRank.ranking();
+                	PageRank.prinScore();
+//					ForwardFile ff = ForwardFile.getInstance();
+//					InvertedFile ivf = InvertedFile.getInstance();
+////					ivf.print();
+//					UrlToIdMap imap = UrlToIdMap.getInstance();
+//					ff.finalize();
+//					ivf.finalize();
+//					imap.finalize();
+				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}

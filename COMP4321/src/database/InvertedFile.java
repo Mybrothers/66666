@@ -151,7 +151,8 @@ public class InvertedFile {
 	public void finalize() throws IOException
 	{
 		manager.commit();
-		manager.close();				
+		manager.close();			
+		instance = null;
 	} 
 	
 	public void print() throws IOException

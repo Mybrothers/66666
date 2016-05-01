@@ -24,6 +24,10 @@ public class Documents implements Serializable{
 		HashMap<String, ArrayList<Integer>> map;
 		ArrayList<Pair> keywords;
 		
+		double pageRank;
+		
+		
+
 		public Documents(int id, int tfmax, String url, Date Date, String Title, ArrayList<String> terms, ArrayList<String> childURLs,ArrayList<String> parentURLs, int Size, HashMap<String, ArrayList<Integer>> map) {
 			docID = id;
 			tfMax = tfmax;
@@ -156,5 +160,17 @@ public class Documents implements Serializable{
 		public ArrayList<Pair> getKeywords() {
 			return this.keywords;
 		}
+		
+		public double getPageRank() {
+			return pageRank;
+		}
 
+		public void setPageRank(double pageRank) {
+			this.pageRank = pageRank;
+		
+		}
+		
+		public int numOfChildren(){
+			return childURLs.size();
+		}
 	}

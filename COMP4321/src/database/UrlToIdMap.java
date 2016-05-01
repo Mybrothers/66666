@@ -54,7 +54,8 @@ public class UrlToIdMap {
 	public void finalize() throws IOException
 	{
 		manager.commit();
-		manager.close();				
+		manager.close();	
+		instance = null;
 	} 
 	
 	public boolean ifUrlExist(String url) throws IOException{
@@ -67,5 +68,17 @@ public class UrlToIdMap {
 			return true;
 		}
 		return false;
+	}
+	
+	public int getDocID(String URL){
+		int id = -1;
+		try {
+			id = (int)UrlToId.get(URL);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Convert URL to doc ID fail");
+			
+		}
+		return id;
 	}
 }
