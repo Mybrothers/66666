@@ -84,9 +84,11 @@ public class Indexer {
 	
 	
 	public void stemming(ArrayList<String> arr){
-		for(String str : arr){
-			str=this.porter.stripAffixes(str);
+		for(int i = 0; i < arr.size(); i++){
+			String str= porter.stripAffixes(arr.get(i));
+			arr.set(i, str);
 		}
+		return;
 	}
 	
 	
@@ -118,15 +120,16 @@ public class Indexer {
 		}
 		
 		// insert into forwarded file 	
+		ArrayList<String> terms = new ArrayList<String>();
 		int tfmax = 0;
 		for(String term : map.keySet()){
 			ArrayList<Integer> data = map.get(term);
 			if(data.size() > tfmax){
 				tfmax = data.size();
 			}
+			terms.add(term);
 		}
-		ArrayList<String> terms = new ArrayList<String>();
-		for(String term : words){ terms.add(term);}
+		
 		ArrayList<String> childURLs = new ArrayList<>();
 		for(Page p : page.children){
 			childURLs.add(p.url);
