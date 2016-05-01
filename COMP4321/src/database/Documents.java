@@ -44,6 +44,7 @@ public class Documents implements Serializable{
 			ArrayList<Pair> tmp = new ArrayList<Pair>();
 			for (String str: allTerms) {
 				Pair pair = new Pair(str,map.get(str).size());
+				System.out.println(str);
 				tmp.add(pair);
 			}
 			Collections.sort(tmp, new Comparator<Pair>() {
@@ -62,6 +63,8 @@ public class Documents implements Serializable{
 		    });
 			if (tmp.size() > 5) {
 				this.keywords = new ArrayList<Pair>(tmp.subList(0, 5));
+			} else {
+				this.keywords = tmp;
 			}
 		}
 
