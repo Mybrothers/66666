@@ -81,4 +81,14 @@ public class UrlToIdMap {
 		}
 		return id;
 	}
+	
+	public int NumOfDocs() throws IOException{
+		FastIterator it = UrlToId.values();
+		int i = 0;
+		Object obj  = null;
+		while((obj = it.next()) != null){
+			i++;
+		}
+		return i;
+	}
 }

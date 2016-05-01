@@ -13,6 +13,7 @@ import database.ForwardFile;
 import database.Indexer;
 import database.InvertedFile;
 import database.Posting;
+import database.UrlToIdMap;
 import jdbm.helper.FastIterator;
 import jdbm.htree.HTree;
 
@@ -25,6 +26,7 @@ public class Retrive {
 	 * Supports phrase search
 	 */
 	public ArrayList<Documents> retrive(ArrayList<String> query) throws IOException {
+		UrlToIdMap UtId = UrlToIdMap.getInstance();
 		ForwardFile ff = ForwardFile.getInstance();
 		HTree docs = ff.getDocPageIndices();
 		FastIterator it = docs.values();
@@ -32,7 +34,7 @@ public class Retrive {
 		InvertedFile invertfile = InvertedFile.getInstance();
 		HTree PageBodyIndices = invertfile.getpagebody();
 		HTree PageTitleIndices = invertfile.getpagetitle();
-		double N = ff.getNumberOfDocuments();
+		double N = UtId.NumOfDocs();
 		ArrayList<Documents> result = new ArrayList<Documents>();
 		while((doc = (Documents) it.next()) != null) {
 			int titleMatch = 0;
