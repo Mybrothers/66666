@@ -168,7 +168,8 @@ public class InvertedFile {
 					System.out.print(pos + "; ");
 				}
 			}
-			System.out.println();
+			String newLine = System.getProperty("line.separator");
+		    System.out.println(newLine );
 		}
 	}
 }

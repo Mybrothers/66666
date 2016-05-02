@@ -50,21 +50,19 @@ public class main {
             Page root = null;
            
                 try {
-                	root = se.extractStrings(300);
-//					se.print();
+//                	root = se.extractStrings(300);
 					UrlToIdMap IDmap = null;
 			        try {
 			        	IDmap = UrlToIdMap.getInstance();
 					} catch (IOException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 					if(IDmap != null){
 												
-							indexer.indexingPageRoot(root);
-							constructURLtoID(root);
-							ForwardFile ff = ForwardFile.getInstance();
-//							ff.printFile();
+//						indexer.indexingPageRoot(root);
+//						constructURLtoID(root);
+						ForwardFile ff = ForwardFile.getInstance();
+//						ff.printFile();
 						
 					}					
 				} catch (Exception e) {
@@ -74,7 +72,7 @@ public class main {
                 try {
 					ForwardFile ff = ForwardFile.getInstance();
 					InvertedFile ivf = InvertedFile.getInstance();
-////					ivf.print();
+//					ivf.print();
 					UrlToIdMap imap = UrlToIdMap.getInstance();
 					ff.finalize();
 					ivf.finalize();
@@ -85,26 +83,6 @@ public class main {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-//                Retrive a = new Retrive();
-//                ArrayList<String> query = new ArrayList<String>();
-////                query.add("Hong Kong");
-////                query.add("Science");
-//                ArrayList<Documents> result = null;
-//                try {
-//                	for (String str: a.process("\"Computer Science\" HKUST ")) {
-//                		query.add(str);
-//                	}
-//                	result = a.retrive(query);
-//				} catch (IOException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-//                for (Documents doc:result) {
-//                	System.out.println(doc.getTitle());
-//        			System.out.println(doc.getURL());
-//        			System.out.println(doc.getDate() + " " + doc.getSize());
-//        			System.out.println(doc.getScore());
-//                }
         }
         else
             System.out.println ("Usage: java -classpath htmlparser.jar org.htmlparser.parserapplications.StringExtractor [-links] url");

@@ -44,8 +44,10 @@ public class Indexer {
 			e.printStackTrace();
 			System.out.println("file not exist!!!");
 		}
-		for(String str:list){
+		for(int i = 0; i < list.size(); i++){
+			String str = list.get(i);
 			str = str.replaceAll("[^a-zA-Z\\d\\s]","");
+			list.set(i, str);
 		}
 		ArrayList<String> afterStop = new ArrayList<String>();
 		for (String str:list) {
