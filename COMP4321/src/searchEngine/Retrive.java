@@ -150,13 +150,17 @@ public class Retrive {
 				if (tmp.contains(" ")) {
 					String[] phrasetmp = tmp.split(" ");
 					for	(int i = 0; i< phrasetmp.length; i++) {
-						pp += index.stemmingWord(phrasetmp[i]);
-						pp += " ";
+						if (!phrasetmp[i].isEmpty()) {
+							pp += index.stemmingWord(phrasetmp[i]);
+							pp += " ";
+						}
 					}
 				} else {
 					pp = index.stemmingWord(tmp);
 				}
-				a.add(pp);
+				if (!pp.isEmpty()) {
+					a.add(pp);
+				}
 			}
 			return a;
 		}

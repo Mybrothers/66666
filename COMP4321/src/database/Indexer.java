@@ -161,7 +161,7 @@ public class Indexer {
 		if (title.size() > 0) {
 			stemming(title);
 		}
-		IndexingPage(root, body, TO_PAGE_BODY);
+		IndexingPage(root, body, TO_PAGE_BODY); 
 		
 		IndexingPage(root, title, TO_PAGE_TITLE);
 		if(root.children.size() == 0) {return;}
