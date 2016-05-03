@@ -13,12 +13,12 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="Packages/filterbuilder.jar"/>
-	<classpathentry kind="lib" path="Packages/htmllexer.jar"/>
-	<classpathentry kind="lib" path="Packages/htmlparser.jar"/>
-	<classpathentry kind="lib" path="Packages/jdbm-1.0.jar"/>
-	<classpathentry kind="lib" path="Packages/junit.jar"/>
-	<classpathentry kind="lib" path="Packages/sax2.jar"/>
-	<classpathentry kind="lib" path="Packages/thumbelina.jar"/>
+	<classpathentry kind="lib" path="lib/filterbuilder.jar"/>
+	<classpathentry kind="lib" path="lib/htmllexer.jar"/>
+	<classpathentry kind="lib" path="lib/htmlparser.jar"/>
+	<classpathentry kind="lib" path="lib/jdbm-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/junit.jar"/>
+	<classpathentry kind="lib" path="lib/sax2.jar"/>
+	<classpathentry kind="lib" path="lib/thumbelina.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

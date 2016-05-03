@@ -145,6 +145,9 @@ public class Indexer {
 	}
 	
 	public void indexingPageRoot(Page root) throws IOException{
+		if(root.url == "http://www.cse.ust.hk/~ericzhao/COMP4321/TestPages/Movie.htm"){
+			System.out.println(root.url);
+		}
 		ArrayList<String> body =   removeStopwords(root.page); 
 		ArrayList<String> title =  removeStopwords(root.title);
 		if (body.size() > 0) {
