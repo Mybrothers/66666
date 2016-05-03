@@ -10,6 +10,7 @@ import java.util.HashMap;
 
 public class Indexer {
 
+	public final String filepath = "/home/xzhangax/git/COMP4321/";
 	public final int TO_PAGE_BODY = 0;
 	public final int TO_PAGE_TITLE = 1;
 	
@@ -39,20 +40,20 @@ public class Indexer {
 	
 	public ArrayList removeStopwordsForQuery(ArrayList<String> list){
 		try{
-			readInStopwords("stopwords.txt");
+			readInStopwords(filepath + "stopwords.txt");
 		}catch (IOException e) {
 			e.printStackTrace();
 			System.out.println("file not exist!!!");
 		}
 		for(int i = 0; i < list.size(); i++){
 			String str = list.get(i);
-			str = str.replaceAll("[^a-zA-Z\\d\\s]","");
+			str = str.replaceAll("[^a-zA-Z\\d\\s]"," ");
 			list.set(i, str);
 		}
 		ArrayList<String> afterStop = new ArrayList<String>();
 		for (String str:list) {
-			if (!str.isEmpty() && !stopWords.contains(str)) {
-                str = str.toLowerCase();
+			str = str.toLowerCase();
+			if (!str.isEmpty() && !stopWords.contains(str)) {    
 				afterStop.add(str);
 			}
 		}
@@ -61,7 +62,7 @@ public class Indexer {
 	
 	public ArrayList removeStopwords(String text){
 		try{
-			readInStopwords("stopwords.txt");
+			readInStopwords(filepath + "stopwords.txt");
 		}catch (IOException e) {
 			e.printStackTrace();
 			System.out.println("file not exist!!!");

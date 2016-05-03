@@ -143,6 +143,7 @@ public class Retrive {
 			if (!substr.isEmpty()) {
 				result.add(substr);
 			}
+			result = index.removeStopwordsForQuery(result);
 			index.stemming(result);
 			return result;
 		}

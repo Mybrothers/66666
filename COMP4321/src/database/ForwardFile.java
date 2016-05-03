@@ -139,9 +139,9 @@ public class ForwardFile implements Serializable{
 			System.out.println(doc.getTitle());
 			System.out.println(doc.getURL());
 			System.out.println(doc.getDate() + " " + doc.getSize());
-			for (String term : doc.getMap().keySet()) {
-				System.out.print(term + " " + doc.getMap().get(term).size() + "; ");
-			}
+//			for (String term : doc.getMap().keySet()) {
+//				System.out.print(term + " " + doc.getMap().get(term).size() + "; ");
+//			}
 			
 			if	(doc.getChildURLs() != null) {
 				for (String childurl : doc.getChildURLs()) {

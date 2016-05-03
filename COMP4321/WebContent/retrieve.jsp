@@ -48,7 +48,7 @@ else{
 		<a href=<%=doc.getURL() %>>Click Me !</a>
 		<p><%= "Last Modified at " + doc.getDate() + " File size: " + doc.getSize() %></p>
 <% 		ArrayList<Pair> keywords = doc.getKeywords();
-		for(int j = 0; j< 5; j++){
+		for(int j = 0; j< keywords.size(); j++){
 			Pair p = keywords.get(j);
 			String word = p.getL();
 			int freq = p.getR();%>
