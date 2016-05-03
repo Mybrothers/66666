@@ -12,6 +12,7 @@ import jdbm.helper.FastIterator;
 import jdbm.htree.HTree;
 
 public class ForwardFile implements Serializable{
+	public final String filepath = "/home/xzhangax/git/COMP4321/";
 
 	public final int TO_PAGE_BODY = 0;
 	public final int TO_PAGE_TITLE = 1;
@@ -30,7 +31,7 @@ public class ForwardFile implements Serializable{
 	}
 	
 	private ForwardFile() throws IOException {
-		recman = RecordManagerFactory.createRecordManager("FindPlayersForwardIndex");
+		recman = RecordManagerFactory.createRecordManager(filepath + "FindPlayersForwardIndex");
 		long recid = recman.getNamedObject("Page_Forward_Index");
 		if(recid == 0){
 			docPageIndices = HTree.createInstance(recman);

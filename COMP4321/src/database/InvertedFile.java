@@ -11,6 +11,7 @@ import jdbm.htree.HTree;
 
 public class InvertedFile {
 
+	public final String filepath = "/home/xzhangax/git/COMP4321/";
 	public final int TO_PAGE_BODY = 0;
 	public final int TO_PAGE_TITLE = 1;
 	private RecordManager manager;
@@ -28,7 +29,7 @@ public class InvertedFile {
 	
 	private InvertedFile() throws IOException {
 		
-		manager = RecordManagerFactory.createRecordManager("FindPlayersInvertedIndex");
+		manager = RecordManagerFactory.createRecordManager(filepath + "FindPlayersInvertedIndex");
 
 		long pbID = manager.getNamedObject("Page_Body_Index");
 		if (pbID == 0) {

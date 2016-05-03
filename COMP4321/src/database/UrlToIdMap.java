@@ -11,6 +11,7 @@ import jdbm.htree.HTree;
 
 public class UrlToIdMap {
 
+	public final String filepath = "/home/xzhangax/git/COMP4321/";
 	private HTree UrlToId;
 	private RecordManager manager;
 	
@@ -25,7 +26,7 @@ public class UrlToIdMap {
 	
 	private UrlToIdMap() throws IOException{
 		
-		manager = RecordManagerFactory.createRecordManager("UrlToId");
+		manager = RecordManagerFactory.createRecordManager(filepath + "UrlToId");
 
 		long pbID = manager.getNamedObject("Index_Url");
 		if (pbID == 0) {
