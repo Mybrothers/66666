@@ -38,10 +38,9 @@ Page Title Map: This map has similar functionality with Page Content Map except 
 
 
 Algorithms used
+cosine similarity based on vector space plus page rank.
 
-
-
-
+Details: Given a query, we preprocess it including stop word removal and stemming. For every word(phrase) in the query, we compute its weight as shown in the lecture slides and calculate cosine similarity. If there’s match in the title, we increase the score dramatically by 0.3. Finally, we combine the cosine score with its page rank(summation) and return top 50 records or less if not so many documents are related to query).
 
 
 
