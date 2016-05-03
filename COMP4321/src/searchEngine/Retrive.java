@@ -144,8 +144,21 @@ public class Retrive {
 				result.add(substr);
 			}
 			result = index.removeStopwordsForQuery(result);
-			index.stemming(result);
-			return result;
+			ArrayList<String> a = new ArrayList<String>();
+			for	(String tmp: result) {
+				String pp = "";
+				if (tmp.contains(" ")) {
+					String[] phrasetmp = tmp.split(" ");
+					for	(int i = 0; i< phrasetmp.length; i++) {
+						pp += index.stemmingWord(phrasetmp[i]);
+						pp += " ";
+					}
+				} else {
+					pp = index.stemmingWord(tmp);
+				}
+				a.add(pp);
+			}
+			return a;
 		}
 	}
 	

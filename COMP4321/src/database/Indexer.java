@@ -94,6 +94,10 @@ public class Indexer {
 		return;
 	}
 	
+	public String stemmingWord(String str){
+		return porter.stripAffixes(str);
+	}
+	
 	
 	
 	public void IndexingPage(Page page, ArrayList<String> words, int type) throws IOException{

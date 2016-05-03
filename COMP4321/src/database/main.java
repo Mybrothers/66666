@@ -50,7 +50,7 @@ public class main {
             Page root = null;
            
                 try {
-//                	root = se.extractStrings(300);
+                	root = se.extractStrings(300);
 					UrlToIdMap IDmap = null;
 			        try {
 			        	IDmap = UrlToIdMap.getInstance();
@@ -59,8 +59,8 @@ public class main {
 					}
 					if(IDmap != null){
 												
-//						indexer.indexingPageRoot(root);
-//						constructURLtoID(root);
+						indexer.indexingPageRoot(root);
+						constructURLtoID(root);
 						ForwardFile ff = ForwardFile.getInstance();
 //						ff.printFile();
 						
@@ -72,13 +72,13 @@ public class main {
                 try {
 					ForwardFile ff = ForwardFile.getInstance();
 					InvertedFile ivf = InvertedFile.getInstance();
-					ivf.print();
+//					ivf.print();
 					UrlToIdMap imap = UrlToIdMap.getInstance();
 					ff.finalize();
 					ivf.finalize();
 					imap.finalize();
-//					PageRank.ranking();
-//                	PageRank.prinScore();
+					PageRank.ranking();
+                	PageRank.prinScore();
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
