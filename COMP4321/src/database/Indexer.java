@@ -76,8 +76,8 @@ public class Indexer {
 		}
 		ArrayList<String> Stopaf = new ArrayList<String>();
 		for (String str:afterStop) {
-			if (!str.isEmpty() && !stopWords.contains(str)) {
-                str = str.toLowerCase();
+			str = str.toLowerCase();
+			if (!str.isEmpty() && !stopWords.contains(str)) {               
 				Stopaf.add(str);
 			}
 		}
@@ -145,8 +145,8 @@ public class Indexer {
 	}
 	
 	public void indexingPageRoot(Page root) throws IOException{
-		if(root.url == "http://www.cse.ust.hk/~ericzhao/COMP4321/TestPages/Movie.htm"){
-			System.out.println(root.url);
+		if(root.index == 4){
+			System.out.println("");
 		}
 		ArrayList<String> body =   removeStopwords(root.page); 
 		ArrayList<String> title =  removeStopwords(root.title);
