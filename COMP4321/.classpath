@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_40">
-		<attributes>
-			<attribute name="owner.project.facets" value="java"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v7.0">
 		<attributes>
 			<attribute name="owner.project.facets" value="jst.web"/>
@@ -13,6 +8,7 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+<<<<<<< Updated upstream
 	<classpathentry kind="lib" path="lib/filterbuilder.jar"/>
 	<classpathentry kind="lib" path="lib/htmllexer.jar"/>
 	<classpathentry kind="lib" path="lib/htmlparser.jar"/>
@@ -20,5 +16,15 @@
 	<classpathentry kind="lib" path="lib/junit.jar"/>
 	<classpathentry kind="lib" path="lib/sax2.jar"/>
 	<classpathentry kind="lib" path="lib/thumbelina.jar"/>
+=======
+	<classpathentry kind="lib" path="Packages/filterbuilder.jar"/>
+	<classpathentry kind="lib" path="Packages/htmllexer.jar"/>
+	<classpathentry kind="lib" path="Packages/htmlparser.jar"/>
+	<classpathentry kind="lib" path="Packages/jdbm-1.0.jar"/>
+	<classpathentry kind="lib" path="Packages/junit.jar"/>
+	<classpathentry kind="lib" path="Packages/sax2.jar"/>
+	<classpathentry kind="lib" path="Packages/thumbelina.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+>>>>>>> Stashed changes
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
