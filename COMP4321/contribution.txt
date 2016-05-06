@@ -1,0 +1,17 @@
++ COMP4321 Project Search Engine Contribution
++ 
++ Authors
++ ==================================================================================================
++ Team:	Li, Zhihang
++	Zhang, Xiang
++	Wang, Yiquan
++ 
++
++ Workload Distribution
++ ==================================================================================================
++ Student Name | Student ID | Workload | Main Task Involved
++ Li, Zhihang  | 20140210   |   33%    | Indexer including stopwords/steming, web content structure 
++ Zhang, Xiang | 20176104   |   33%    | Inverted/Forward File, retrieve.jsp
++ Wang, Yiquan | 20175344   |   34%    | StringExtractor,retriver
++
++--------------------------------------End of Contribution————————————————————————
